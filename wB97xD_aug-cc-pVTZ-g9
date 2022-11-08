@@ -1,0 +1,36 @@
+#!/bin/sh
+#SBATCH --time=24:00:00
+#SBATCH --mem=64G
+#SBATCH --ntasks=16
+#SBATCH --cpus-per-task=1
+#SBATCH --ntasks-per-node=1
+#SBATCH --partition=comp
+#SBATCH --qos=partner
+#SBATCH --job-name=name
+
+module load gaussian/g16a03
+
+export PROJECT="sn29"
+
+time G16 << END > name.log
+
+%chk=name.chk
+%nprocshared=15
+%mem=63gb
+
+#P wB97XD/aug-cc-pVTZ opt INT=(grid=ultrafine) freq
+
+You can do it!
+
+0 1
+C         -1.44889        2.32482       -0.09279
+C         -0.07620        2.37347       -0.03104
+C         -1.79352        0.90814       -0.01332
+H         -2.11926        3.16931       -0.18166
+C          0.35913        0.98443        0.08351
+H          0.53808        3.26349       -0.06213
+O         -0.69105        0.13761        0.09102
+O         -2.92852        0.46145       -0.03689
+O          1.52039        0.61913        0.16323
+
+END

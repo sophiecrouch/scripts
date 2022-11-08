@@ -1,0 +1,32 @@
+#!/bin/sh
+#SBATCH --tasks-per-node=1
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=16
+#SBATCH --mem=64GB
+#SBATCH --time=48:00:00
+#SBATCH --partition=comp
+#SBATCH --error=name.err
+#SBATCH --output=dca.log
+
+export PROJECT="sn29"
+
+module load gaussian/g16a03
+time G16 << END
+
+time G16 << END
+%chk=name.chk
+%nproc=15
+%mem=63gb
+
+#P MP2/cc-pVTZ INT=(grid=ultrafine) pop=(chelpg,dipole)
+
+name.xyz
+
+-1 1
+N        0.487009310      2.741543580     -0.221107043
+C       -0.663257968      2.144892590     -0.388227539
+C        1.613693551      2.143914429     -0.504762914
+N       -1.738759684      1.709981987     -0.497956531
+N        2.671884791      1.707847415     -0.723785972
+
+END

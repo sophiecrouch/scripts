@@ -3,6 +3,8 @@ from autochem import Settings, GaussJob, Molecule
 import os
 from glob import glob
 
+###### Written by github.com/tommason14 #######
+
 cwd = os.getcwd()
 
 sett = Settings()

@@ -6,7 +6,7 @@
 #SBATCH --time=48:00:00
 #SBATCH --partition=comp
 #SBATCH --error=name.err
-#SBATCH --output=dca.log
+#SBATCH --output=name.log
 
 export PROJECT="sn29"
 
